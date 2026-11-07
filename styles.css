@@ -1,0 +1,368 @@
+:root {
+  color-scheme: dark;
+  font-family: "Geist", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  background: var(--page-bg);
+  color: var(--text);
+
+  --page-bg: #0b0b0b;
+  --text: #f2f2f2;
+  --muted: #9c9c9c;
+  --subtle: #a0a0a0;
+  --link: #e6e6e6;
+  --chip-bg: #232323;
+  --chip-text: #ededed;
+  --chip-muted: #a6a6a6;
+  --moon-bg: #242424;
+  --field-border: #2b2b2b;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #f5f5f5;
+  --text: #111111;
+  --muted: #666666;
+  --subtle: #686868;
+  --link: #222222;
+  --chip-bg: #e8e8e8;
+  --chip-text: #222222;
+  --chip-muted: #777777;
+  --moon-bg: #e8e8e8;
+  --field-border: #d7d7d7;
+}
+
+* {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--page-bg);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--page-bg);
+  font-size: 14px;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(500px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.signature {
+  position: fixed;
+  z-index: 0;
+  right: 0;
+  bottom: -34px;
+  width: min(1100px, 100vw);
+  height: auto;
+  pointer-events: none;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.identity-copy p {
+  margin: 0;
+}
+
+.name {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.role {
+  color: var(--subtle);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.theme-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.theme-button {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theme-button[hidden] {
+  display: none;
+}
+
+.sun-icon {
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.moon-button {
+  background: var(--moon-bg);
+}
+
+.moon-button img {
+  width: 12px;
+  height: 12px;
+  transition: filter 160ms ease;
+}
+
+:root[data-theme="light"] .moon-button img {
+  filter: invert(1);
+}
+
+.intro {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.intro p {
+  margin: 0;
+}
+
+.intro p + p {
+  margin-top: 17px;
+}
+
+.intro .text-link {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.company-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.company-link {
+  white-space: nowrap;
+}
+
+.inline-logo {
+  display: inline-flex;
+  width: 19px;
+  height: 19px;
+  margin: 0 3px;
+  overflow: hidden;
+  vertical-align: -4px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.inline-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.inline-logo.uoc-logo {
+  background: #1683ea;
+}
+
+.inline-logo.kodex-logo {
+  background: #1745ed;
+}
+
+.inline-logo.binsa-logo {
+  background: #20245f;
+}
+
+.social-links {
+  display: flex;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 5px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.social-links a span {
+  color: var(--chip-muted);
+  font-size: 10px;
+}
+
+.contact {
+  margin-top: 33px;
+}
+
+.contact h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+.contact-intro {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--link);
+  font-size: 14px;
+  line-height: 21px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 160ms ease;
+}
+
+.footer {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+}
+
+:root[data-theme="light"] .signature {
+  filter: invert(1);
+}
+
+@media (hover: hover) {
+  .theme-button:hover,
+  .social-links a:hover {
+    transform: translateY(-1px);
+  }
+
+  .theme-button:hover {
+    background-color: var(--chip-bg);
+  }
+
+  .social-links a:hover {
+    background-color: var(--field-border);
+  }
+
+  .intro .text-link:hover {
+    opacity: 0.72;
+  }
+
+  .contact-email:hover {
+    opacity: 0.72;
+  }
+
+  .company-link:hover .inline-logo img {
+    transform: scale(1.08);
+  }
+
+  .avatar:hover {
+    transform: scale(1.04);
+  }
+}
+
+@media (hover: none) {
+  .theme-button:active,
+  .social-links a:active {
+    transform: translateY(1px);
+  }
+
+  .intro .text-link:active {
+    opacity: 0.72;
+  }
+
+  .contact-email:active {
+    opacity: 0.72;
+  }
+
+  .company-link:active .inline-logo img,
+  .avatar:active {
+    transform: scale(1.03);
+  }
+}
+
+.theme-button:focus-visible,
+.social-links a:focus-visible,
+.contact-email:focus-visible,
+.intro .text-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .page {
+    width: calc(100% - 40px);
+    padding-top: 36px;
+    padding-bottom: 48px;
+  }
+
+  .signature {
+    bottom: -18px;
+    width: 100vw;
+  }
+}

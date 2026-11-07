@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <title>Carlos Heredia — Software Engineer</title>
+    <link rel="icon" type="image/png" href="./img/pfp.png" />
+    <script>
+      (() => {
+        let savedTheme;
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          if (storedTheme === "light" || storedTheme === "dark") {
+            savedTheme = storedTheme;
+          }
+        } catch (error) {
+          console.warn("The saved theme preference could not be read.", error);
+        }
+        const theme = savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content =
+          theme === "light" ? "#f5f5f5" : "#0b0b0b";
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <img class="signature" src="./img/signature.svg" alt="" aria-hidden="true" />
+
+    <main class="page">
+      <header class="profile">
+        <div class="identity">
+          <img class="avatar" src="./img/pfp.png" alt="Carlos Heredia" />
+          <div class="identity-copy">
+            <p class="name">Carlos Heredia</p>
+            <p class="role">Software Engineer</p>
+          </div>
+        </div>
+
+        <div class="theme-icons">
+          <button class="theme-button sun-button" type="button" data-theme-choice="light" aria-label="Switch to light mode" title="Light mode">
+            <svg class="sun-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="6" cy="6" r="2" />
+              <path d="M6 0.75V2M6 10V11.25M11.25 6H10M2 6H0.75M9.71 2.29L8.83 3.17M3.17 8.83L2.29 9.71M9.71 9.71L8.83 8.83M3.17 3.17L2.29 2.29" />
+            </svg>
+          </button>
+          <button class="theme-button moon-button" type="button" data-theme-choice="dark" aria-label="Switch to dark mode" title="Dark mode">
+            <img src="./img/icon_moon.svg" alt="" />
+          </button>
+        </div>
+      </header>
+
+      <section class="intro" aria-label="About Carlos">
+        <p>I'm Carlos, a software engineer blending clean code and good design, based in Barcelona.</p>
+        <p>
+          I'm currently shipping code at
+          <a class="text-link company-link" href="https://www.linkedin.com/company/moventia/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><span class="inline-logo"><img src="./img/moventia_logo.png" alt="" /></span><span class="company-name">Moventia</span></a>,
+          and completing my Computer Engineering degree at
+          <a class="text-link company-link" href="https://www.linkedin.com/school/uoc/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><span class="inline-logo uoc-logo"><img src="./img/uoc_logo.png" alt="" /></span><span class="company-name">UOC</span></a>. With previous experience at
+          <a class="text-link company-link" href="https://www.linkedin.com/company/kodexglobal/" target="_blank" rel="noopener noreferrer"><span class="inline-logo kodex-logo"><img src="./img/kodex_logo.png" alt="" /></span><span class="company-name">Kodex</span></a>
+          and
+          <a class="text-link company-link" href="https://www.linkedin.com/company/binsa-software-s.l./" target="_blank" rel="noopener noreferrer"><span class="inline-logo binsa-logo"><img src="./img/binsa_logo.png" alt="" /></span><span class="company-name">Binsa Software</span></a>.
+        </p>
+      </section>
+
+      <div class="social-links">
+        <a href="https://github.com/cahelodev" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/cahelo/" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true">↗</span></a>
+        <a href="https://x.com/cahelodev" target="_blank" rel="noopener noreferrer">X<span aria-hidden="true">↗</span></a>
+      </div>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <h1 id="contact-title">Let’s talk.</h1>
+        <p class="contact-intro">Have a role, project or collaboration in mind? Introduce yourself and tell me a little about it.</p>
+        <a class="contact-email" href="mailto:cahelo1406@gmail.com">cahelo1406@gmail.com</a>
+      </section>
+
+      <footer class="footer">© 2026 Carlos H.</footer>
+    </main>
+  </body>
+</html>
